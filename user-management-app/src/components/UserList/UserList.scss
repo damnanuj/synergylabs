@@ -1,0 +1,87 @@
+.userList_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard_card {
+  width: 90%;
+
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.411);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.create_user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 2px solid #f0f0f0;
+
+  margin-bottom: 20px;
+  h2 {
+    margin: 0;
+  }
+  
+}
+
+.table_container {
+  max-height: 350px;
+  //   border: 1px solid red;
+  overflow-y: scroll;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #f4f4f4;
+  background-color: #006f70;
+  color: #f4f4f4;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  span {
+    cursor: pointer;
+  }
+  .view {
+    color: #008388;
+  }
+  .delete {
+    color: #c70000;
+  }
+  .edit {
+    color: green;
+  }
+}
+
+.no-data {
+  text-align: center;
+  color: #999;
+  padding: 12px;
+}
+
+.loading-message {
+  position: relative;
+
+  margin: 100px;
+}
