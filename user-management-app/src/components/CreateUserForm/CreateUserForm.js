@@ -1,14 +1,14 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { notification } from "antd";
 import axios from "axios";
 import { UserContext } from "../../Context/UserContext";
 import "./CreateUserForm.scss";
 import GreenButton from "../common/GreenButton";
 
-const CreateUserForm = () => {
+const CreateUserForm = ({ isEditMode }) => {
   const navigate = useNavigate();
-
+  const { id } = useParams(); // fetching id if in edit mode
   const { users, setUsers } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
@@ -19,6 +19,17 @@ const CreateUserForm = () => {
 
   const [loading, setLoading] = useState(false);
 
+  //========= Fetch user data if editing ==============
+  useEffect(() => {
+    if (isEditMode && id) {
+      const userToEdit = users.find((user) => user.id === parseInt(id));
+      if (userToEdit) {
+        setFormData(userToEdit); //>>> Pre-fill the form with user data
+      }
+    }
+  }, [isEditMode, id, users]);
+
+  // >>>spreading out the data
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -27,14 +38,14 @@ const CreateUserForm = () => {
   };
 
   const validatePhone = (phone) => {
-    // Validate phone number (10 digits)
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^\d{10}$/; // Basic validation for 10-digit phone number
     return phoneRegex.test(phone);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate phone number before submitting
     if (!validatePhone(formData.phone)) {
       notification.error({
         message: "Error",
@@ -42,35 +53,55 @@ const CreateUserForm = () => {
       });
       return;
     }
-    setLoading(true);
-    try {
-      //========== POST reQuest
-      const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/users",
-        formData
-      );
-      const newUser = response.data;
-      // =======success notification===========
-      notification.success({
-        message: "Success",
-        description: "User created successfully!",
-      });
 
-      // ==========updating the list in userContext locally====
-      setUsers([...users, newUser]);
+    setLoading(true); // Start loading state
+    try {
+      let response;
+
+      if (isEditMode) {
+        // Update user logic
+        response = await axios.put(
+          `https://jsonplaceholder.typicode.com/users/${id}`,
+          formData
+        );
+
+        // Update local user context with the edited data
+        setUsers(
+          users.map((user) =>
+            user.id === parseInt(id) ? { ...user, ...formData } : user
+          )
+        );
+
+        notification.success({
+          message: "Success",
+          description: "User updated successfully!",
+        });
+      } else {
+        //======== Create new user========
+        response = await axios.post(
+          "https://jsonplaceholder.typicode.com/users",
+          formData
+        );
+
+        //============ new user to context locally
+        setUsers([...users, response.data]);
+
+        notification.success({
+          message: "Success",
+          description: "User created successfully!",
+        });
+      }
 
       setFormData({ name: "", email: "", phone: "" });
-      //========= back to user list page
-      navigate("/");
+      navigate("/"); //====> back to home=====
     } catch (error) {
-      // =======error notification===========
       notification.error({
         message: "Error",
-        description: "Failed to create user. Please try again.",
+        description: "Failed to create/update user. Please try again.",
       });
-      console.error("Error creating user:", error);
+      console.error("Error:", error);
     } finally {
-      setLoading(false); //========= Stop loading
+      setLoading(false); //loading state false updating
     }
   };
 
@@ -78,18 +109,17 @@ const CreateUserForm = () => {
     <div className="userForm_container">
       <div className="dashboard_card">
         <div className="form_header">
-          <h2>Create User</h2>
-         <GreenButton/>
+          <h2>{isEditMode ? "Edit User" : "Create User"}</h2>
+          <GreenButton />
         </div>
 
-        {/*======= Form for Creating a User ============*/}
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">User Name</label>
           <input
             type="text"
             id="name"
             name="name"
-            value={formData.name}
+            value={formData.name} //=> input values if its in creation it'll be empty initially
             onChange={handleChange}
             required
           />
@@ -114,8 +144,10 @@ const CreateUserForm = () => {
             required
           />
 
-          <button type="submit" disabled={loading}>
-            {loading ? "Creating..." : "Create"}
+{/* =====disabling the button if the loading is true to avoid multiple clicks */}
+          <button type="submit" disabled={loading}> 
+            {/* update or create button text based on condition  */}
+            {loading ? "Processing..." : isEditMode ? "Update" : "Create"}
           </button>
         </form>
       </div>

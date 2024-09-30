@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import Loader from './components/common/Loader/Loader';
-
 import { UserProvider } from "./Context/UserContext";
 
 
@@ -38,7 +37,8 @@ function App() {
               <Routes>
                 <Route path='/' element={<LazyLoadingWrapper Component={Home}/>}/>
                 <Route path='/create-user' element={<LazyLoadingWrapper Component={CreateUser}/>}/>
-                <Route path='/edit-user' element={<LazyLoadingWrapper Component={EditUser}/>}/>
+                {/* <Route path='/edit-user' element={<LazyLoadingWrapper Component={EditUser} />} /> */}
+                <Route path='/edit-user/:id' element={<LazyLoadingWrapper Component={EditUser} />} />
                 {/* <Route path='/user-details' element={<LazyLoadingWrapper Component={UserDetailsPage}/>}/> */}
                 <Route path="/user-details/:id" element={<LazyLoadingWrapper Component={UserDetailsPage}/>} />
                 <Route path='*' element={<LazyLoadingWrapper Component={NotFound}/>}/>

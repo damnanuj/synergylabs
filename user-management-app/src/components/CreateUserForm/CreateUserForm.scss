@@ -48,6 +48,9 @@
           &:hover {
             background-color: #006f70;
           }
+          &:disabled{
+            background-color: gray; //>> disabled color
+          }
         }
       }
     }

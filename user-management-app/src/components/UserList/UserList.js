@@ -37,10 +37,15 @@ const UserList = () => {
                     <td>{user.email}</td>
                     <td>{user.phone}</td>
                     <td className="actions">
+        {/* =========View user Details icon========= */}
                       <Link to={`/user-details/${user.id}`}>
                         <span className="material-icons view">visibility</span>
                       </Link>
-                      <span className="material-icons edit">edit_square</span>
+        {/* =========Edit user Details icon========= */}              
+                      <Link to={`/edit-user/${user.id}`}>
+                        <span className="material-icons edit">edit_square</span>
+                      </Link>
+        {/* =========Delete user Details icon========= */}              
                       <span
                         className="material-icons delete"
                         onClick={() => deleteUser(user.id, users, setUsers)}

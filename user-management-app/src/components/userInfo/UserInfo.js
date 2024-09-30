@@ -17,8 +17,9 @@ const UserInfo = () => {
     <div className="userInfo_container">
       <div className="userInfo_box">
         <div className="form_header">
-          <h2>User Detail</h2>
-          <GreenButton/>
+          <h2>User Details</h2>
+          {/* custom green button  */}
+          <GreenButton/>  
         </div>
         {user ? (
           <div className="userDetails">
