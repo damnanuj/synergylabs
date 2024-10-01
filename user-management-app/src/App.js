@@ -1,5 +1,5 @@
 
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
@@ -24,6 +24,8 @@ const LazyLoadingWrapper = ({ Component }) => {
     </Suspense>
   );
 };
+
+
 
 
 function App() {

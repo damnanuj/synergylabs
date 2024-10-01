@@ -29,7 +29,7 @@ const UserInfo = () => {
             <p><strong>Phone:</strong> {user.phone}</p>
           </div>
         ) : (
-          <p>User not found.</p> // Message if the user is not found
+          <p style={{textAlign:"center"}}>User not found.</p> //if the user is not found
         )}
       </div>
     </div>

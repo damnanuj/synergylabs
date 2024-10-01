@@ -4,18 +4,21 @@
   align-items: center;
   padding: 20px;
   // border: 1px solid red;
+ 
 }
 .dashboard_card {
   width: 90%;
   // border: 1px solid green;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.388);
- 
+  border-radius: 8px;
+    padding: 20px;
   
 
   img {
     width: 120px;
   }
   .userDetails {
+    position: relative;
     text-align: center;
     margin-top: 30px;
     p {
