@@ -37,6 +37,11 @@ const CreateUserForm = ({ isEditMode }) => {
       [e.target.name]: e.target.value,
     });
   };
+  const validateEmail = (email) => {
+    // Simple email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const validatePhone = (phone) => {
     const phoneRegex = /^\d{10}$/; // Basic validation for 10-digit phone number
@@ -46,6 +51,15 @@ const CreateUserForm = ({ isEditMode }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate Email before submitting
+    if (!validateEmail(formData.email)) {
+      message.open({
+        type: "error",
+        content: "Please enter a valid email address",
+        duration: 2,
+      });
+      return;
+    }
     // Validate phone number before submitting
     if (!validatePhone(formData.phone)) {
       message.open({
