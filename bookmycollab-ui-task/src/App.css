@@ -1,5 +1,5 @@
 .App {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 
 }
@@ -22,7 +22,21 @@
       width: 50%;
     }
   }
-  
+  .gradient-text {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 800;
+    background-image: linear-gradient(to bottom right, #b533ff, #5526b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+.gray-text{
+  color: #636363;
+  font-weight: 500;
+}
+  .flex{
+    display: flex;
+    align-items: center;
+  }
 
   /* AlertMsg.css */
   @keyframes blink {
@@ -34,3 +48,5 @@
   .blinking-alert {
     animation: blink 1s infinite;
   }
+
+ 

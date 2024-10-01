@@ -15,3 +15,17 @@
         background-color: #39187c;
     }
 }
+
+.purple_small_btn{
+    background-color: #5526b6;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;    
+    &:hover{
+        background-color: #39187c;
+    }
+}

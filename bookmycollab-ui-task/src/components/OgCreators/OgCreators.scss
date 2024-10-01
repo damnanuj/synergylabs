@@ -1,0 +1,139 @@
+.Og_Creators_container {
+  height: 100vh;
+  background-color: #faf9f9;
+  
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  .flex {
+    
+    margin-bottom: 2.5rem;
+    justify-content: space-between;
+    .og_text{
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .viewAllbtn {
+      text-decoration: none;
+      padding: 5px 25px;
+      border-radius: 30px;
+      border: 1px solid #b533ff;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #b533ff;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      &:hover{
+        background-color: #b533ff;
+        color: white;
+      }
+    }
+  }
+}
+
+
+.og_cards_container{
+    width: 100%;
+   height: 75%;
+    
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    .og_card{
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.224);
+        border-radius: 10px;
+        padding: 0.8rem;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease-in-out;
+          &:hover{
+            transform: scale(1.01);
+          }
+        
+        .og_img_container{
+            overflow: hidden;
+            height: 70%;
+            
+            border-radius: 10px;
+            img{
+                height: 100%;
+                object-fit: cover;
+                width: 250px;
+                
+            }
+        }
+        .social_name{
+            
+           height: 20%;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           .followers{
+            text-align: end;
+           }
+            
+        }
+        .social_links{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+           
+            .social_icons{
+                display: flex;
+                gap: 10px;
+                div{
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid #2929294d;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        i{
+                            color: #b533ff;
+                        }
+                    }
+                }
+                
+            }
+           
+        }
+    }
+}
+
+
+@media (max-width:"768px"){
+    .Og_Creators_container{
+        padding: 2rem !important;
+    }
+    .og_cards_container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .og_img_container{
+        display: flex;
+        justify-content: center;
+      align-items: center;
+      overflow: hidden;
+        img{
+            height: 100%;
+            object-fit: fill;
+            width: 300px !important;
+            
+        }
+    }
+    .viewAllbtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        padding: 0.5rem  !important;
+    }
+}

@@ -17,7 +17,7 @@ const LandingPage = () => {
           {" "}
           <img className="waveHand" src={wavinghand} alt="hand" />
         </div>
-        <h1>
+        <h1 className="gradient-text">
           Simplyfying Influencer <br /> Marketing For You!
         </h1>
         <p>

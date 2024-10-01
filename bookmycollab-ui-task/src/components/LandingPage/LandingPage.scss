@@ -1,10 +1,11 @@
 .landingPage_container {
   width: 100%;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 50px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 2rem;
+  padding-bottom: 3rem;
   position: relative;
   .heroLeft {
     padding: 2rem;
@@ -21,8 +22,10 @@
     }
 
     h1 {
-      color: #5526b6;
-      font-size: 40px;
+      
+      font-size: 35px;
+      font-weight: 800;
+      font-family: "Libre Baskerville", serif;
     }
 
     p {
@@ -61,7 +64,7 @@
 
     img {
       width: 500px;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 }
