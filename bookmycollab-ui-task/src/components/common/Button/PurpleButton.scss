@@ -1,11 +1,17 @@
 
 
 .purpleBtn{
-    background-color: rgb(17, 1, 163);
-    padding: 10px 20px;
+    background-color: #5526b6;
+    padding: 8px 20px;
     border-radius: 10px;
     outline: none;
     border: none;
     color: white;
-    
+    min-width: 100px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;    
+    &:hover{
+        background-color: #39187c;
+    }
 }

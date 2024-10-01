@@ -1,3 +1,13 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+
+}
+.uni_padding{
+  padding: 0 6rem;
+}
+
+
 .not-found-container {
     width: 100%;
   
