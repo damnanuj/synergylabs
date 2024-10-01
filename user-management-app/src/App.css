@@ -4,9 +4,6 @@
 
 }
 
-.uni_padding {
-  padding: 0 5rem;
-}
 
 .form_header {
   display: flex;
@@ -55,3 +52,4 @@
     width: 50%;
   }
 }
+

@@ -26,7 +26,6 @@ const LazyLoadingWrapper = ({ Component }) => {
 };
 
 
-
 function App() {
   return (
     <div className="App">

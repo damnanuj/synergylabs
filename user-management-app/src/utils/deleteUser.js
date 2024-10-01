@@ -4,7 +4,6 @@ export const deleteUser = (id, users, setUsers) => {
   //=======antD model to confirmation pop-up==========
   Modal.confirm({
     title: "Are you sure you want to delete this user?",
-   
     okText: "Yes",
     cancelText: "No",
     onOk: () => {
@@ -12,6 +11,7 @@ export const deleteUser = (id, users, setUsers) => {
       notification.success({
         message: "User Deleted",
         description: "The user has been successfully deleted.",
+        duration:70
       });
     },
     onCancel: () => {

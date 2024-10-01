@@ -14,6 +14,7 @@ const UserList = () => {
       <div className="dashboard_card">
         <div className="create_user">
           <h2>Manage Users</h2>
+          {/* custom button with 2 props dynamically */}
           <GreenButton text="Create user" route="/create-user" />
         </div>
 
@@ -21,7 +22,7 @@ const UserList = () => {
           <table>
             <thead>
               <tr>
-                <th>Number</th>
+                <th>S.N.</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
@@ -32,10 +33,10 @@ const UserList = () => {
               {users.length > 0 ? (
                 users.map((user, index) => (
                   <tr key={user.id}>
-                    <td>{index + 1}</td>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.phone}</td>
+                    <td data-label="S.N.">{index + 1}</td>
+                    <td data-label="Name">{user.name}</td>
+                    <td data-label="Email">{user.email}</td>
+                    <td data-label="Phone">{user.phone}</td>
                     <td className="actions">
         {/* =========View user Details icon========= */}
                       <Link to={`/user-details/${user.id}`}>
@@ -57,7 +58,8 @@ const UserList = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" className="no-data">
+          {/* Showing no data if no users is present/ arr.length===0 */}
+                  <td colSpan="5" className="no-data"> 
                     No data available
                   </td>
                 </tr>

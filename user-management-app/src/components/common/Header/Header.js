@@ -4,7 +4,7 @@ import {useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <header className="header_container uni_padding">
+    <header className="header_container ">
       <span className="material-icons" onClick={() => navigate("/")}>home</span>
       
       <div>

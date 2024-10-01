@@ -8,7 +8,7 @@ const EditUser = () => {
       <Header />
       <CreateUserFormm isEditMode={true} />
       {/* using the createUser Form component but 
-      as editable one isEditMode as true */}
+      as editable one */}
     </>
   );
 };

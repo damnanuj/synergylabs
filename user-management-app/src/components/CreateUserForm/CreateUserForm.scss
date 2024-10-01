@@ -1,59 +1,68 @@
 .userForm_container {
-    height: 80vh;
+    
     display: flex;
     justify-content: center;
     align-items: center;
+  
+    
+  }
+
+  .dashboard_card {
+    width: 90%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     padding: 20px;
-  
-    .dashboard_card {
-      width: 50%;
-      background-color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      padding: 20px;
-  
-      
-  
-      form {
-        display: flex;
-        flex-direction: column;
-  
-        label {
-          margin: 10px 0 5px;
-          font-weight: bold;
+
+    
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin: 10px 0 5px;
+        font-weight: bold;
+      }
+
+      input {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        &:focus{
+          border-color: #008388;
+          outline: none;
         }
-  
-        input {
-          padding: 10px;
-          margin-bottom: 20px;
-          border: 1px solid #ddd;
-          border-radius: 5px;
-          font-size: 16px;
-          &:focus{
-            border-color: #008388;
-            outline: none;
-          }
+      }
+
+      button {
+        background-color: #008388;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #006f70;
         }
-  
-        button {
-          background-color: #008388;
-          color: #fff;
-          border: none;
-          padding: 10px 20px;
-          cursor: pointer;
-          border-radius: 5px;
-          font-size: 16px;
-          transition: background-color 0.3s ease;
-  
-          &:hover {
-            background-color: #006f70;
-          }
-          &:disabled{
-            background-color: gray; //>> disabled color
-          }
+        &:disabled{
+          background-color: gray; //>> disabled color
         }
       }
     }
   }
 
  
+ 
+@media (min-width: 1024px) {
+  .userForm_container{
+    .dashboard_card{
+      width: 50%;
+    }
+  }
+}

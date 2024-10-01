@@ -15,7 +15,7 @@ const UserInfo = () => {
 
   return (
     <div className="userInfo_container">
-      <div className="userInfo_box">
+      <div className="dashboard_card">
         <div className="form_header">
           <h2>User Details</h2>
           {/* custom green button  */}
@@ -23,7 +23,7 @@ const UserInfo = () => {
         </div>
         {user ? (
           <div className="userDetails">
-            <img src={profile}></img>
+            <img src={profile} alt='profilePic'/>
             <p><strong>Name:</strong> {user.name}</p>
             <p><strong>Email:</strong> {user.email}</p>
             <p><strong>Phone:</strong> {user.phone}</p>
