@@ -38,15 +38,15 @@ const UserList = () => {
                     <td data-label="Email">{user.email}</td>
                     <td data-label="Phone">{user.phone}</td>
                     <td className="actions">
-        {/* =========View user Details icon========= */}
+                      {/* =========View user Details icon========= */}
                       <Link to={`/user-details/${user.id}`}>
                         <span className="material-icons view">visibility</span>
                       </Link>
-        {/* =========Edit user Details icon========= */}              
+                      {/* =========Edit user Details icon========= */}
                       <Link to={`/edit-user/${user.id}`}>
                         <span className="material-icons edit">edit_square</span>
                       </Link>
-        {/* =========Delete user Details icon========= */}              
+                      {/* =========Delete user Details icon========= */}
                       <span
                         className="material-icons delete"
                         onClick={() => deleteUser(user.id, users, setUsers)}
@@ -58,8 +58,8 @@ const UserList = () => {
                 ))
               ) : (
                 <tr>
-          {/* Showing no data if no users is present/ arr.length===0 */}
-                  <td colSpan="5" className="no-data"> 
+                  {/* Showing no data if no users is present/ arr.length===0 */}
+                  <td colSpan="5" className="no-data">
                     No data available
                   </td>
                 </tr>

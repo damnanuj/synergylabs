@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // =========api request for fetching users==========
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -17,7 +18,7 @@ export const UserProvider = ({ children }) => {
         );
         setUsers(response.data);
         // console.log(response.data);
-// ========== success notification using antD===========
+        // ========== success notification using antD===========
         // notification.success({
         //   message: "Welcome Back",
         //   description: "All users fetched successfully",
@@ -25,20 +26,21 @@ export const UserProvider = ({ children }) => {
         // });
         setLoading(false);
       } catch (error) {
-// ========== Error notification using antD=============       
+        // ========== Error notification using antD=============
         notification.error({
           message: "Failed to fetch users",
           description: error.message,
           duration: 2,
         });
         console.log(error);
-        setLoading(false)
+        setLoading(false);
       }
     };
     fetchUsers();
   }, []);
 
   return (
+    // provider =======
     <UserContext.Provider value={{ users, setUsers, loading }}>
       {children}
     </UserContext.Provider>

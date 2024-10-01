@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { notification } from "antd";
+import { message, notification } from "antd";
 import axios from "axios";
 import { UserContext } from "../../Context/UserContext";
 import "./CreateUserForm.scss";
@@ -11,6 +11,7 @@ const CreateUserForm = ({ isEditMode }) => {
   const { id } = useParams(); // fetching id if in edit mode
   const { users, setUsers } = useContext(UserContext);
 
+  //====== collecting form data here======
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,9 +48,10 @@ const CreateUserForm = ({ isEditMode }) => {
 
     // Validate phone number before submitting
     if (!validatePhone(formData.phone)) {
-      notification.error({
-        message: "Error",
-        description: "Please enter a valid phone number (10 digits).",
+      message.open({
+        type: "error",
+        content: "Please enter a valid phone number (10 digits).",
+        duration: 2,
       });
       return;
     }
@@ -71,10 +73,10 @@ const CreateUserForm = ({ isEditMode }) => {
             user.id === parseInt(id) ? { ...user, ...formData } : user
           )
         );
-
-        notification.success({
-          message: "Success",
-          description: "User updated successfully!",
+        message.open({
+          type: "success",
+          content: "User updated successfully!",
+          duration: 2,
         });
       } else {
         //======== Create new user========
@@ -86,19 +88,23 @@ const CreateUserForm = ({ isEditMode }) => {
         //============ new user to context locally
         setUsers([...users, response.data]);
 
-        notification.success({
-          message: "Success",
-          description: "User created successfully!",
+        message.open({
+          type: "success",
+          content: "User created successfully!",
+          duration: 2,
         });
       }
 
       setFormData({ name: "", email: "", phone: "" });
       navigate("/"); //====> back to home=====
     } catch (error) {
-      notification.error({
-        message: "Error",
-        description: "Failed to create/update user. Please try again.",
+      message.open({
+        type: "error",
+        content:
+          "Failed to create user. " + error.message + " Please try again.",
+        duration: 2,
       });
+
       console.error("Error:", error);
     } finally {
       setLoading(false); //loading state false updating
@@ -144,8 +150,8 @@ const CreateUserForm = ({ isEditMode }) => {
             required
           />
 
-{/* =====disabling the button if the loading is true to avoid multiple clicks */}
-          <button type="submit" disabled={loading}> 
+          {/* =====disabling the button if the loading is true to avoid multiple clicks */}
+          <button type="submit" disabled={loading}>
             {/* update or create button text based on condition  */}
             {loading ? "Processing..." : isEditMode ? "Update" : "Create"}
           </button>

@@ -1,6 +1,8 @@
-import { Modal, notification } from "antd";
+import { message, Modal } from "antd";
+import React, { useState } from "react";
 
 export const deleteUser = (id, users, setUsers) => {
+
   //=======antD model to confirmation pop-up==========
   Modal.confirm({
     title: "Are you sure you want to delete this user?",
@@ -8,17 +10,21 @@ export const deleteUser = (id, users, setUsers) => {
     cancelText: "No",
     onOk: () => {
       setUsers(users.filter((user) => user.id !== id));
-      notification.success({
-        message: "User Deleted",
-        description: "The user has been successfully deleted.",
-        duration:70
+      message.open({
+        type: 'success',
+        content: 'The user has been successfully deleted.',
+        duration: 2,
+       
       });
     },
     onCancel: () => {
-      notification.info({
-        message: "Delete Cancelled",
-        description: "User deletion has been cancelled.",
+      message.open({
+        type: 'info',
+        content: 'User deletion has been cancelled.',
+        duration: 2,
+       
       });
     },
   });
+
 };
