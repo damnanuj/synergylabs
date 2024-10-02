@@ -7,6 +7,8 @@ import prada from "../../assests/UI-task-images/4.png";
 import calvin from "../../assests/UI-task-images/2.png";
 import denim from "../../assests/UI-task-images/1.png";
 import wavinghand from "../../assests/waving-hand-sign.svg";
+import Dropdown from "../common/SelcectOptionsMenu/SelectOptions";
+
 
 const LandingPage = () => {
   return (
@@ -24,6 +26,7 @@ const LandingPage = () => {
           Explore creator across Youtube, Instagram & Facebook to create unique
           content for your brand
         </p>
+        <Dropdown/>
         <div className="partnersListImg">
           <p>Trusted By</p>
           <img src={channel} alt="parters" />
