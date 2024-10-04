@@ -32,6 +32,18 @@
       }
     }
   }
+.ant-drawer-content{
+  .ant-drawer-body{
+    .nav_list_items{
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 1rem !important;
+    }
+  }
+}
+ 
+  
 
   .menuBtn {
     display: none;

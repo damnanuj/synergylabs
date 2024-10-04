@@ -50,3 +50,28 @@
   }
 
  
+  .ant-drawer-content{
+    .ant-drawer-body{
+      .nav_list_items{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        
+        a{
+          border-radius: 20px;
+          width: 100%;
+          text-align: center;
+          padding: 0.5rem;
+          border-bottom: 1px solid #6363633b;
+          color: #636363;
+          font-size: 18px;
+          transition: 0.3s ease;
+          &:hover{
+            box-shadow: 0 2px 7px #6363634f;
+            color: #5526b6;
+          }
+        }
+      }
+    }
+  }
