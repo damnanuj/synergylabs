@@ -3,13 +3,13 @@ import "./OgCreators.scss";
 import {PurpleSmallBtn} from "../common/Button/PurpleButton";
 import { creatorsData } from "../../Data/creatorsData";
 
-const OgCreators = () => {
+const OgCreators = ({heading, contentText}) => {
   return (
     <div className="Og_Creators_container uni_padding">
       <div className="flex">
         <div className="og_text">
-          <h1 className="gradient-text">The OG Creators</h1>
-          <p className="gray-text">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+          <h1 className="gradient-text">{heading}</h1>
+          <p className="gray-text">{contentText}</p>
         </div>
         <a className="viewAllbtn">view all</a>
       </div>

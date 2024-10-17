@@ -4,7 +4,9 @@
   
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-  .flex {
+  
+}
+.flex {
     
     margin-bottom: 2.5rem;
     justify-content: space-between;
@@ -30,8 +32,6 @@
       }
     }
   }
-}
-
 
 .og_cards_container{
     width: 100%;
@@ -60,7 +60,7 @@
             img{
                 height: 100%;
                 object-fit: cover;
-                width: 250px;
+                width: 100%;
                 
             }
         }

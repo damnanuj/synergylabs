@@ -1,0 +1,33 @@
+.joinus_container {
+    width: 100%;
+    height: calc(170vh - 5rem); 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 50vh; 
+    gap: 1.5rem; 
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    
+    .asBrand, .asCreator, .JoinUs_socials {
+     
+      border-radius: 20px; 
+    }
+    .asBrand, .asCreator{
+        background-image: linear-gradient(#5526b6,#3a2a50);
+    }
+  
+    .asBrand {
+      height: 100%; 
+    }
+  
+    .asCreator {
+      height: 100%; 
+    }
+  
+    .JoinUs_socials {
+        border: 1px solid black; 
+      grid-column: span 2; 
+      height: 50vh; 
+    }
+  }
+  

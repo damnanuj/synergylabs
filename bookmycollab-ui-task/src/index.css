@@ -8,6 +8,9 @@
   font-family: "Poppins", system-ui;
 }
 
+.homePageHolder{
+  position: relative;
+}
 
 
 /* #5526b6 */
